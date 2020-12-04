@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "torre-technical"
+  "defaultProject": "torre-technical",
+  "cli": {
+    "analytics": "ce031627-8399-400f-8c82-0352513fb06a"
+  }
 }
