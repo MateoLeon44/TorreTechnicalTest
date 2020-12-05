@@ -1,0 +1,7 @@
+All of the hours reported here are in EST time zone
+
+- Finished Github setup | 4/12/2020 | 4:40 PM EST (Didn't log this because I had it in Asana and then I realized it isn't public)
+- Finished planning | 4/12/2020 | 4:43 PM EST (Didn't log this because I had it in Asana and then I realized it isn't public)
+- Started project components and project structure (backend folder, Mongo AtlasDB, TSLint, prettier, environment setup) | 4/12/2020 | 6 pm (I had a power outage which made me lose some time :( )
+- Finished project components and project structure (backend folder, Mongo AtlasDB, TSLint, prettier, environment setup) | 4/12/2020 | 7:12 pm (I had a power outage which made me lose some time :( )
+- Started deploying in heroku for filling the form | 4/12/2020 | 7:14 pm
