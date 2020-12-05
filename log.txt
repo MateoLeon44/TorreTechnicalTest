@@ -7,3 +7,4 @@ All of the hours reported here are in EST time zone
 - Started deploying in heroku for filling the form | 4/12/2020 | 7:14 pm
 - Pause of deploying in heroku | 4/12/2020 | 7:55 pm 
 - Continue deploying | 4/12/2020 | 8:16 pm
+- Finished deploying configurations | 4/12/2020 | 8:30 pm
