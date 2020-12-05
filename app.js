@@ -12,10 +12,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '/dist/TorreTechnicalTest')));
+app.use(express.static(path.join(__dirname, '/dist/torre-technical')));
 
 app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/TorreTechnicalTest/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/torre-technical/index.html'));
   });
 
 app.use('/', indexRouter);

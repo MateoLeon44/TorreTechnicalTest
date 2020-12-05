@@ -22,11 +22,15 @@
     "@angular/router": "~11.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
   },
   "engines": {
     "node": "10.14.2",
-      "npm": "6.4.1"
+    "npm": "6.4.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.3",
