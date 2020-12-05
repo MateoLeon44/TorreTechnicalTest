@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: process.env.APIURL
+  apiUrl: 'https://torre-technical-test-0.herokuapp.com/',
 };
