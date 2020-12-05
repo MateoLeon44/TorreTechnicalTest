@@ -1,6 +1,7 @@
 {
   "name": "torre-technical",
   "version": "0.0.0",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "grunt sass:production && ng build --prod"
   },
   "private": true,
   "dependencies": {
