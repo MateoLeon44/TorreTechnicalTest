@@ -1,3 +1,9 @@
-<section>
-    
+<section class='jobs'>
+  <div *ngIf="jobs.length > 0">
+    <mat-progress-spinner></mat-progress-spinner>
+  </div>
+  <div *ngIf="jobs.length == 0" class='listing'>
+    <mat-card></mat-card>
+  </div>
 </section>
+

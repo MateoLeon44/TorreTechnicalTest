@@ -9,7 +9,7 @@ export class MatSnackbarService {
 
     openError(message: string): void {
         this.zone.run(() => {
-            this.snackBar.open(message, 'success', { duration: 3000 });
+            this.snackBar.open(message, '', { duration: 3000, panelClass: ['mat-toolbar', 'mat-primary'] });
         });
     }
 }

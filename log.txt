@@ -20,7 +20,8 @@ All of the hours reported here are in EST time zone
 - Continue NavBar implementation | 4/12/2020 | 11:00 pm
 - Finish NavBar | 4/12/2020 | 11:45 am
 - Start genome | 4/12/2020 | 12:20 am
-- Start compare | 5/12/2020 | 1:00 pm
+- Start compare/job listings | 5/12/2020 | 4:00 pm
+- Stopped compare/job listings | 5/12/2020 | 5:20 pm
 
 
 

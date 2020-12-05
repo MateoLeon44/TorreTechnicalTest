@@ -21,7 +21,6 @@ export class JobListingComponent implements OnInit {
     getFirstJobs(): void {
         this.torreService.POSTJobs(0).subscribe(
             (jobs) => {
-                this.snackbar.openError('Got job listings');
                 this.jobs = jobs.results;
             },
             (err) => {
