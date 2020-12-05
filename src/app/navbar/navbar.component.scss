@@ -1,0 +1,19 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+
+.icono-arriba {
+    display: flex;
+    margin-top: -14px;
+}
+
+.is-active{
+    opacity: 1 !important;
+    color: #CDDC39;
+}
+
+.not-active {
+    opacity: 0.5;
+}
+
