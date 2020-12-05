@@ -7,6 +7,8 @@ const routes: Routes = [
         loadChildren: () =>
             import('./genome/genome.module').then((m) => m.GenomeModule),
     },
+    { path: 'compare', loadChildren: () => import('./compare/compare.module').then(m => m.CompareModule) },
+    { path: 'job-listing', loadChildren: () => import('./job-listing/job-listing.module').then(m => m.JobListingModule) },
 ];
 
 @NgModule({

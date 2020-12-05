@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations: [AppComponent, NavbarComponent],
@@ -18,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
         RouterModule,
         MatToolbarModule,
         MatButtonModule,
+        HttpClientModule,
+        MatSnackBarModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
