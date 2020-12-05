@@ -5,3 +5,5 @@ All of the hours reported here are in EST time zone
 - Started project components and project structure (backend folder, Mongo AtlasDB, TSLint, prettier, environment setup) | 4/12/2020 | 6 pm (I had a power outage which made me lose some time :( )
 - Finished project components and project structure (backend folder, Mongo AtlasDB, TSLint, prettier, environment setup) | 4/12/2020 | 7:12 pm (I had a power outage which made me lose some time :( )
 - Started deploying in heroku for filling the form | 4/12/2020 | 7:14 pm
+- Pause of deploying in heroku | 4/12/2020 | 7:55 pm 
+- Continue deploying | 4/12/2020 | 8:16 pm
