@@ -10,7 +10,7 @@ export class TorreService {
 
     POSTJobs(offs: number): Observable<any> {
         const params = new HttpParams()
-            .set('size', '6')
+            .set('size', '9')
             .set('aggregate', 'false')
             .set('offset', offs.toString());
         return this.http.post(

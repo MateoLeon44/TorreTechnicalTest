@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GenomeComponent } from './genome.component';
+import { JobCardComponent } from './job-card.component';
 
-describe('GenomeComponent', () => {
-  let component: GenomeComponent;
-  let fixture: ComponentFixture<GenomeComponent>;
+describe('JobCardComponent', () => {
+  let component: JobCardComponent;
+  let fixture: ComponentFixture<JobCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GenomeComponent ]
+      declarations: [ JobCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GenomeComponent);
+    fixture = TestBed.createComponent(JobCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

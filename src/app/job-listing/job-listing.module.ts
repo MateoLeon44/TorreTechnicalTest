@@ -6,10 +6,11 @@ import { JobListingComponent } from './job-listing.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { JobCardComponent } from './job-card/job-card.component';
 
 
 @NgModule({
-    declarations: [JobListingComponent],
+    declarations: [JobListingComponent, JobCardComponent],
     imports: [
         CommonModule,
         JobListingRoutingModule,

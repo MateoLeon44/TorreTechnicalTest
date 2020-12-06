@@ -1,0 +1,79 @@
+.card {
+    margin: 14px 0px 14px 0px;
+}
+
+.mat-img {
+    width: 72px;
+    height: 72px;
+    margin: 0 -16px 0px -16px;
+    border-radius: 10px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    > div {
+        flex: 50%;
+        padding: 20px 10px 10px 16px;
+    }
+}
+
+.title {
+    -webkit-box-flex: 1;
+    color: #cddc39 !important;
+    flex-grow: 1;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.mat-card-image:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.organization {
+    display: block;
+    padding-bottom: 5px;
+}
+
+.public {
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.location {
+    opacity: 0.5;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-top: 10px;
+}
+
+.carousel > .container {
+    white-space: nowrap;
+    padding-bottom: 10px;
+    overflow: auto;
+}
+
+.carousel__item {
+    overflow: hidden;
+    width: auto;
+    margin: 0 10px 0 0;
+    display: inline-block;
+    transition: 450ms all;
+    transform-origin: center left;
+    border: 1px solid white;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

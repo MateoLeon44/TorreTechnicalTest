@@ -56,5 +56,3 @@ const peopleController = () => {
 module.exports = peopleController();
 
 
-
-
