@@ -12,6 +12,7 @@ export class JobListingComponent implements OnInit {
     jobs: any[];
     offset: number;
     result: any;
+    loading: boolean;
 
     constructor(
         private torreService: TorreService,
@@ -19,10 +20,7 @@ export class JobListingComponent implements OnInit {
     ) {
         this.jobs = [];
         this.offset = 0;
-    }
-
-    getFirstJobs(): void {
-        this.getJobs();
+        this.loading = true;
     }
 
     getJobs(): void {
@@ -30,6 +28,7 @@ export class JobListingComponent implements OnInit {
             (jobs) => {
                 this.result = jobs;
                 this.jobs = jobs.results;
+                this.loading = false;
             },
             (err) => {
                 this.snackbar.openError('Error obtaining job listings');
@@ -37,7 +36,13 @@ export class JobListingComponent implements OnInit {
         );
     }
 
+    modifyOffset(num: number): void {
+        this.loading = true;
+        this.offset += num;
+        this.getJobs();
+    }
+
     ngOnInit(): void {
-        this.getFirstJobs();
+        this.getJobs();
     }
 }
