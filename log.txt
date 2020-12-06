@@ -25,8 +25,8 @@ All of the hours reported here are in EST time zone
 - Begin compare/job listings | 5/12/2020 | 6:00 pm
 - Stop compare/job listings | 5/12/2020 | 11:10 pm
 - Continue compare | 6/12/2020 | 12:06
-- Stopped job listings (finished filtering)
-
+- Stopped job listings (finished pagination) | 6/12/2020 | 1:50 am 
+- Started compare | 6/12/2020 | 11:30 am 
 
 
 
