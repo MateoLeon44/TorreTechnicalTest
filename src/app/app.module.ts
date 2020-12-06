@@ -15,6 +15,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { StorageService } from './services/localstorage/storage.service';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
     declarations: [AppComponent, NavbarComponent],
@@ -32,8 +37,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         FlexLayoutModule,
         MatSidenavModule,
         MatPaginatorModule,
+        MatDividerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule
     ],
-    providers: [],
+    providers: [StorageService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

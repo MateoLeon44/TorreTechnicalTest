@@ -11,14 +11,14 @@
     </div>
     <div>
       <span class='pagination'>
-        <button *ngIf="offset !== 0" (click)='modifyOffset(-6)' mat-button class='button-arrow'>
+        <button *ngIf="offset !== 0" (click)='modifyOffset(-6)' class='button-arrow'>
           <span class='material-icons arrow-right'>
             keyboard_arrow_left
           </span>
         </button>
         <span> {{offset}} - {{offset+6}} of {{result.total}}
         </span>
-        <button *ngIf="offset+1*6 !== result.total" (click)='modifyOffset(6)' mat-button class='button-arrow'>
+        <button *ngIf="offset+1*6 !== result.total" (click)='modifyOffset(6)' class='button-arrow'>
           <span class='material-icons arrow-right'>
             keyboard_arrow_right
           </span>

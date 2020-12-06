@@ -12,6 +12,7 @@
 .pagination {
     display: block;
     text-align: center;
+    margin-top: 10px;
 }
 
 .loader {
@@ -20,26 +21,6 @@
 }
 
 
-/* width */
-::-webkit-scrollbar {
-    display: none;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #393939;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    border-radius: 9px;
-    background: #cddc39;
-    width: 1px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-}
 
 .arrow-right {
     vertical-align: middle;
