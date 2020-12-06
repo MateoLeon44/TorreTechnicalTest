@@ -1,0 +1,37 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.icono-arriba {
+    display: flex;
+    margin-top: -14px;
+}
+
+.is-active {
+    opacity: 1 !important;
+    color: #cddc39;
+}
+
+.not-active {
+    opacity: 0.5;
+}
+
+.hamb {
+    margin-top: 8px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+:host ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: #cddc39;
+}
+
+.wrapper {
+    margin: auto;
+}
+
+.nav-content {
+    background: black;
+    overflow-x: auto;
+}
