@@ -1,7 +1,24 @@
+const url = require('../config/db');
 const { MongoClient } = require("mongodb");
-const { database } = require('../config/db');
 
-const uri = database;
-const conn = MongoClient.connect(uri, { useUnifiedTopology: true });
 
-module.exports = conn;
+const MongoUtils = () => {
+    const MyMongoLib = this || {};
+    const dbName = process.env.DBNAME || 'torre'
+    
+
+    MongoClient.connect(url.database, { useUnifiedTopology: true }).then((client) => {
+        MyMongoLib.db = client.db(dbName);
+    });
+
+    MyMongoLib.connect = () => {
+        const client = new MongoClient(url.database, { useUnifiedTopology: true });
+        return client.connect();
+    };
+
+
+
+    return MyMongoLib;
+}
+
+module.exports = MongoUtils();
