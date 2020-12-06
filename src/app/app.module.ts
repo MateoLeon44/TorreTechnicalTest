@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     declarations: [AppComponent, NavbarComponent],
@@ -30,6 +31,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
         MatProgressSpinnerModule,
         FlexLayoutModule,
         MatSidenavModule,
+        MatPaginatorModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

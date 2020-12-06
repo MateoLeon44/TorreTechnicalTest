@@ -10,22 +10,29 @@ import { TorreService } from '../services/torre/torre.service';
 })
 export class JobListingComponent implements OnInit {
     jobs: any[];
+    offset: number;
+    result: any;
 
     constructor(
         private torreService: TorreService,
         private snackbar: MatSnackbarService,
     ) {
         this.jobs = [];
+        this.offset = 0;
     }
 
     getFirstJobs(): void {
-        this.torreService.POSTJobs(0).subscribe(
+        this.getJobs();
+    }
+
+    getJobs(): void {
+        this.torreService.POSTJobs(this.offset).subscribe(
             (jobs) => {
+                this.result = jobs;
                 this.jobs = jobs.results;
             },
             (err) => {
                 this.snackbar.openError('Error obtaining job listings');
-                console.log('error');
             },
         );
     }

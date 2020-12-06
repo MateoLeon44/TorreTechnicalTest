@@ -29,9 +29,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container fxFlexFill class="example-container">
-
   <mat-sidenav #sidenav fxLayout="column">
-
     <div fxLayout="column">
       <button class='not-active' (click)="sidenav.toggle()" mat-button [routerLink]="['/job-listing']" [routerLinkActive]="['is-active']">
         <span class='material-icons'>
@@ -56,6 +54,8 @@
     </div>
 
   </mat-sidenav>
+
+  <mat-sidenav-content  class='nav-content' fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
 
 
 </mat-sidenav-container>

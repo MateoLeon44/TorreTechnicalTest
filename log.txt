@@ -22,6 +22,10 @@ All of the hours reported here are in EST time zone
 - Start genome | 4/12/2020 | 12:20 am
 - Start compare/job listings | 5/12/2020 | 4:00 pm
 - Stopped compare/job listings | 5/12/2020 | 5:20 pm
+- Begin compare/job listings | 5/12/2020 | 6:00 pm
+- Stop compare/job listings | 5/12/2020 | 11:10 pm
+- Continue compare | 6/12/2020 | 12:06
+- Stopped job listings (finished filtering)
 
 
 
