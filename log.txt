@@ -8,3 +8,25 @@ All of the hours reported here are in EST time zone
 - Pause of deploying in heroku | 4/12/2020 | 7:55 pm 
 - Continue deploying | 4/12/2020 | 8:16 pm
 - Finished deploying configurations | 4/12/2020 | 8:30 pm
+- Started API testing | 4/12/2020 | 8:48 pm
+- Finished API testing | 4/12/2020 | 9:00 pm
+- Starting connection to database | 4/12/2020 | 9:01 pm
+- Finished connection to database | 4/12/2020 | 9:13 pm
+- Started NavBar | 4/12/2020 | 9:35 pm
+- Select color palette | 4/12/2020 | 9:45 pm
+- Finished selecting color palette | 4/12/2020 | 9:49 pm
+- Started selecting fonts | 4/12/2020 | 9:50 pm
+- Finished selecting fonts | 4/12/2020 | 9:54 pm
+- Continue NavBar implementation | 4/12/2020 | 11:00 pm
+- Finish NavBar | 4/12/2020 | 11:45 am
+- Start genome | 4/12/2020 | 12:20 am
+- Start compare/job listings | 5/12/2020 | 4:00 pm
+- Stopped compare/job listings | 5/12/2020 | 5:20 pm
+- Begin compare/job listings | 5/12/2020 | 6:00 pm
+- Stop compare/job listings | 5/12/2020 | 11:10 pm
+- Continue compare | 6/12/2020 | 12:06
+- Stopped job listings (finished filtering)
+
+
+
+

@@ -1,0 +1,82 @@
+<section class='jobs'>
+  <div *ngIf="jobs.length == 0">
+    <mat-progress-spinner class='loader' diameter='50' value="50" mode='indeterminate' color='primary'>
+    </mat-progress-spinner>
+  </div>
+  <div *ngIf="jobs.length > 0" class='listing'>
+    <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let job of jobs">
+        <mat-card class="mat-elevation-z4">
+          <mat-card-content>
+            <div class='flex-row'>
+              <div class='hexagon'>
+                <img alt='{{job.organizations[0].name}} image' mat-card-image class='mat-img'
+                  src="{{job.organizations[0].picture}}">
+              </div>
+            </div>
+            <span class='title'>{{job.objective}}</span>
+            <span class='organization'>
+              <span>
+                {{job.organizations[0].name}}
+              </span>
+              <span *ngIf="job.organizations.lenght > 1">
+                and +{{job.organizations.length-1}} more
+              </span>
+            </span>
+            <span class='location'>
+              <span class='material-icons public'>
+                public
+              </span>
+              <span *ngIf="job.remote">
+                Remote
+              </span>
+              <span *ngIf="job.remote && job.locations.length > 0">
+                -
+              </span>
+              <span *ngIf="job.locations.length > 0">
+                {{job.locations[0]}}
+              </span>
+              <span *ngIf="job.locations.length > 1">
+                and +{{job.locations.length-1}} more
+              </span>
+            </span>
+
+            <section class='carousel'>
+              <div class="container">
+                <!-- ITEM -->
+                <div *ngFor="let skill of job.skills" class="carousel__item ">
+                  <div class="skill">
+                    <span>
+                      {{skill.name}} {{skill.experience}}
+                    </span>
+
+                  </div>
+
+                </div>
+              </div>
+            </section>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div>
+      <span class='pagination'>
+        <button *ngIf="offset !== 0"  mat-button class='button-arrow'>
+          <span class='material-icons arrow-right'>
+            keyboard_arrow_left
+          </span>
+        </button>
+        <span> {{offset*6}} - {{offset+1*6}} of {{result.total}}
+        </span>
+        <button *ngIf="offset+1*6 !== result.total" mat-button class='button-arrow'>
+          <span class='material-icons arrow-right'>
+            keyboard_arrow_right
+          </span>
+        </button>
+      </span>
+    </div>
+  </div>
+
+
+
+</section>
