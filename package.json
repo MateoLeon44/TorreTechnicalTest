@@ -1,6 +1,9 @@
 {
   "name": "torre-technical",
   "version": "0.0.0",
+  "browser": {
+    "crypto": false
+  },
   "scripts": {
     "ng": "ng",
     "start": "node app.js",

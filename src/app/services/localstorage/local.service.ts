@@ -6,14 +6,12 @@ import { StorageService } from './storage.service';
 export class LocalService {
 
   constructor(private storageService: StorageService) { }
-  // Set the json data to local 
   setJsonValue(key: string, value: any) {
     this.storageService.secureStorage.setItem(key, value);
   }
-  // Get the json value from local 
   getJsonValue(key: string) {
     return this.storageService.secureStorage.getItem(key);
-  }// Clear the local 
+  }
   clearToken() {
     return this.storageService.secureStorage.clear();
   }

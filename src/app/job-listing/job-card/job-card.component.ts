@@ -12,14 +12,14 @@ import { StorageService } from 'src/app/services/localstorage/storage.service';
 export class JobCardComponent implements OnInit {
   @Input() job: any;
 
-  constructor(private router: Router, private localStorage: LocalService) {
+  constructor(private router: Router, private local: LocalService) {
   }
 
   ngOnInit(): void {
   }
 
   goToCompare(): void {
-    this.localStorage.setJsonValue('job', this.job);
+    this.local.setJsonValue('job', this.job);
     this.router.navigate(['compare']);
   }
 

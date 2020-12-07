@@ -2,10 +2,29 @@
     <div class='listing'>
         <div class='search'>
             <mat-form-field appearance='outline' floatLabel='auto' class='search-field'>
-                <mat-label>Search</mat-label>
+                <mat-label>Search for the job's skills</mat-label>
                 <mat-icon matPrefix class='person-icon'>person_search</mat-icon>
-                <input  matInput>
+
+                <mat-chip-list #chipList>
+                    <mat-chip (removed)="remove(skill)" *ngFor="let skill of skills" [selectable]="selectable"
+                        [removable]="removable">
+                        {{skill}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+
+                    <input #compareInput [formControl]="skillCtrl" [matChipInputFor]="chipList" [matAutocomplete]="auto"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)" matInput>
+                </mat-chip-list>
+
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor='let skill of filteredSkills | async' [value]='skill'>
+                        {{skill['name']}}
+                    </mat-option>
+                </mat-autocomplete>
             </mat-form-field>
         </div>
+
+
     </div>
 </section>

@@ -20,6 +20,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { StorageService } from './services/localstorage/storage.service';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [AppComponent, NavbarComponent],
@@ -40,7 +43,11 @@ import {MatIconModule} from '@angular/material/icon';
         MatDividerModule,
         MatFormFieldModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        MatAutocompleteModule,
+        MatChipsModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [StorageService],
     bootstrap: [AppComponent],

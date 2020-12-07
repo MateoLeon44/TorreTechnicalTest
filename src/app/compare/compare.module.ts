@@ -6,6 +6,9 @@ import { CompareComponent } from './compare.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +18,11 @@ import { MatIconModule } from '@angular/material/icon';
     CompareRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CompareModule { }
