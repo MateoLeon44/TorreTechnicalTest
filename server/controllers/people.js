@@ -1,7 +1,6 @@
 const mu = require('./database.js');
 const https = require('https');
 const dbconfigs = require('../config/db');
-const { promise } = require('protractor');
 
 const peopleController = () => {
     const people = {};
