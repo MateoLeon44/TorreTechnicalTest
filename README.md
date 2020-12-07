@@ -1,29 +1,15 @@
 # TorreTechnical
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+https://torre-technical-test-0.herokuapp.com/
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Concept
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The test helps people who post jobs to compare their best fits. By this, people can contact them with ease without having to go with many applications. Right now, if you see console of the best fits section, even though it doesn't show any candidate, it logs the people who fit the job because of their skills (not taking into account other features)
 
-## Build
+## How to run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# TorreTechnicalTest
-Torre technical test using their API as a full stack developer
+You can either start it by running node app.js and ng serve having mongodb running. 
