@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { JobListingRoutingModule } from './job-listing-routing.module';
-import { JobListingComponent } from './job-listing.component';
+import { JobCardComponent } from './job-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { JobCardComponent } from './job-card/job-card.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
 
-
 @NgModule({
-    declarations: [JobListingComponent, JobCardComponent],
+    declarations: [JobCardComponent],
     imports: [
         CommonModule,
-        JobListingRoutingModule,
         MatCardModule,
         MatProgressSpinnerModule,
         FlexLayoutModule,
@@ -24,4 +20,4 @@ import { MatDividerModule } from '@angular/material/divider';
         MatDividerModule
     ],
 })
-export class JobListingModule {}
+export class JobCardModule { }

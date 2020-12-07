@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../services/localstorage/storage.service';
 import { MatSnackbarService } from '../services/mat-snackbar/mat-snackbar.service';
 import { TorreService } from '../services/torre/torre.service';
 
@@ -6,7 +7,7 @@ import { TorreService } from '../services/torre/torre.service';
     selector: 'app-job-listing',
     templateUrl: './job-listing.component.html',
     styleUrls: ['./job-listing.component.scss'],
-    providers: [TorreService, MatSnackbarService],
+    providers: [TorreService, MatSnackbarService, StorageService],
 })
 export class JobListingComponent implements OnInit {
     jobs: any[];
@@ -17,6 +18,7 @@ export class JobListingComponent implements OnInit {
     constructor(
         private torreService: TorreService,
         private snackbar: MatSnackbarService,
+        private localStorage: StorageService
     ) {
         this.jobs = [];
         this.offset = 0;
