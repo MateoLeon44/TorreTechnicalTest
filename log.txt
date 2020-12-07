@@ -1,7 +1,7 @@
 All of the hours reported here are in EST time zone
 
-- Finished Github setup | 4/12/2020 | 4:40 PM EST (Didn't log this because I had it in Asana and then I realized it isn't public)
-- Finished planning | 4/12/2020 | 4:43 PM EST (Didn't log this because I had it in Asana and then I realized it isn't public)
+- Finished Github setup | 4/12/2020 | 4:40 PM EST (Didn't log this because I had it in Asana and then I realized it isn't public to share)
+- Finished planning | 4/12/2020 | 4:43 PM EST (Didn't log this because I had it in Asana and then I realized it isn't public to share)
 - Started project components and project structure (backend folder, Mongo AtlasDB, TSLint, prettier, environment setup) | 4/12/2020 | 6 pm (I had a power outage which made me lose some time :( )
 - Finished project components and project structure (backend folder, Mongo AtlasDB, TSLint, prettier, environment setup) | 4/12/2020 | 7:12 pm (I had a power outage which made me lose some time :( )
 - Started deploying in heroku for filling the form | 4/12/2020 | 7:14 pm
@@ -13,24 +13,32 @@ All of the hours reported here are in EST time zone
 - Starting connection to database | 4/12/2020 | 9:01 pm
 - Finished connection to database | 4/12/2020 | 9:13 pm
 - Started NavBar | 4/12/2020 | 9:35 pm
-- Select color palette | 4/12/2020 | 9:45 pm
+- Start selecting color palette | 4/12/2020 | 9:45 pm
 - Finished selecting color palette | 4/12/2020 | 9:49 pm
 - Started selecting fonts | 4/12/2020 | 9:50 pm
 - Finished selecting fonts | 4/12/2020 | 9:54 pm
 - Continue NavBar implementation | 4/12/2020 | 11:00 pm
 - Finish NavBar | 4/12/2020 | 11:45 am
 - Start genome | 4/12/2020 | 12:20 am
-- Start compare/job listings | 5/12/2020 | 4:00 pm
+- Start compare (feature that lets me compare people depending on the job skills selected)/job listings | 5/12/2020 | 4:00 pm
 - Stopped compare/job listings | 5/12/2020 | 5:20 pm
 - Begin compare/job listings | 5/12/2020 | 6:00 pm
 - Stop compare/job listings | 5/12/2020 | 11:10 pm
 - Continue compare | 6/12/2020 | 12:06
 - Stopped job listings (finished pagination) | 6/12/2020 | 1:50 am 
-- Started compare | 6/12/2020 | 11:30 am 
-- Stopped compare | 6/12/2020 | 12:00 pm
+- Started compare feature | 6/12/2020 | 11:30 am 
+- Stopped compare feature | 6/12/2020 | 12:00 pm
 - Discovered pagination bug | 6/12/2020 | 12:30
 - Finished pagination bug | 6/12/2020 | 1:00 pm
 - Started adding people to database for compare | 6/12/2020 | 2:00 pm
 - Finished adding people to database for compare | 6/12/2020 | 4:00 pm
-
-
+- Started search bar for skills | 6/12/2020 | 4:00 pm
+- Finished search bar for skills | 6/12/2020 | 8:17 pm
+- Started models (people) for database queries | 6/12/2020 | 8:18 pm
+- Finished models (people) for database queries | 6/12/2020 | 8:29 pm
+- Started test of people with jest | 6/12/2020 | 8:29 pm
+- Finished test of people with jest | 6/12/2020 | 9:00 pm
+- Started database queries for analyzing data | 6/12/2020 | 9:10 pm
+- Started loader when database queries are done | 6/12/2020 | 9:15 pm
+- Finished loader when database queries are done | 6/12/2020 | 9:40 pm
+- Implemented interceptor for adding headers to database requests | 6/12/2020 | 9:55 pm

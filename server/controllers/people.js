@@ -1,7 +1,6 @@
 const mu = require('./database.js');
 const https = require('https');
 const dbconfigs = require('../config/db');
-const { promise } = require('protractor');
 
 const peopleController = () => {
     const people = {};
@@ -50,11 +49,23 @@ const peopleController = () => {
         });
     }
 
+
+    people.searchFits = (job, filters) => {
+        return mu.connect().then((client) => 
+            client
+                .db(dbconfigs.name)
+                .collection('people')
+                .find({
+                    skills: { $elemMatch: { name: { $in: filters } } }
+                },)
+                .toArray()
+                .finally(() => client.close())
+        );
+    }
+
     return people;
 }
 
 module.exports = peopleController();
-
-
 
 

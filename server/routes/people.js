@@ -16,4 +16,15 @@ router.post('/add-people', async function (req, res, next) {
   }
 });
 
+router.post('/search-fit', function async (req, res, next) {
+  job = req.body.job;
+  filters = req.body.filters;
+  peopleController.searchFits(job, filters).then((people) => {
+    res.send(people);
+  }, (err) => {
+    res.send('Failed obtaining best fits')
+  })
+
+});
+
 module.exports = router;
