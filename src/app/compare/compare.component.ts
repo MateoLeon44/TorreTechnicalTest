@@ -23,6 +23,9 @@ export class CompareComponent implements OnInit {
   separatorKeysCodes: number[];
   addOnBlur = false;
   allSkills: any[];
+  loading: boolean;
+  showInstructions: boolean;
+  instructions: Array<string>;
 
   @ViewChild('compareInput') compareInput!: ElementRef;
 
@@ -32,6 +35,12 @@ export class CompareComponent implements OnInit {
     this.separatorKeysCodes = [ENTER, COMMA];
     this.skills = [];
     this.allSkills = []
+    this.loading = true;
+    this.showInstructions = true;
+    this.instructions = [
+      'Search for the skills you want to filter from the job you chose',
+      'See how people compare each other in those skills'
+    ]
     this.skillCtrl.valueChanges.subscribe(search => {
       this.filteredSkills = of(this.allSkills.filter((item: any) => {
         return item.name.toLowerCase().includes(search)
@@ -44,8 +53,6 @@ export class CompareComponent implements OnInit {
     this.job = this.local.getJsonValue('job')
     this.allSkills = this.job.skills;
   }
-
-
 
   remove(skill: string): void {
     const index = this.skills.indexOf(skill);
@@ -64,6 +71,7 @@ export class CompareComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
+    this.showInstructions = false;
     const input = event.input;
     const value = event.value;
 
@@ -79,6 +87,7 @@ export class CompareComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
+    this.showInstructions = false;
     this.skills.push(event.option.viewValue);
     this.compareInput.nativeElement.value = '';
     this.skillCtrl.setValue(null);

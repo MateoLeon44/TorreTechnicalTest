@@ -49,6 +49,11 @@ const peopleController = () => {
         });
     }
 
+
+    people.searchFits = (job) => {
+        
+    }
+
     return people;
 }
 

@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv');
 var indexRouter = require('./server/routes/index');
-var usersRouter = require('./server/routes/users');
+var peopleRouter = require('./server/routes/people');
 
 var app = express();
 
@@ -20,7 +20,7 @@ app.get('/*', function(req, res) {
   });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/people', peopleRouter);
 
 app.listen(process.env.PORT || 3000);
 

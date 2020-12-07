@@ -19,12 +19,27 @@
 
                 <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
                     <mat-option *ngFor='let skill of filteredSkills | async' [value]='skill'>
-                        {{skill['name']}}
+                        {{skill.name}}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
         </div>
 
-
+        <div *ngIf="loading && showInstructions">
+            <div class='ordered'>
+                <div>
+                    <ol>
+                        <li class='ordered-item' *ngFor="let instruction of instructions">{{instruction}}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="loading && !showInstructions">
+            <mat-progress-spinner class='loader' diameter='50' value="50" mode='indeterminate' color='primary'>
+            </mat-progress-spinner>
+        </div>
+        <div *ngIf="!loading">
+            <app-fits></app-fits>
+        </div>
     </div>
 </section>

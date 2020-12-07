@@ -16,4 +16,9 @@ router.post('/add-people', async function (req, res, next) {
   }
 });
 
+router.post('/search-fit', function(req,res,next){
+  job = req.body.job;
+  
+});
+
 module.exports = router;
