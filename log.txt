@@ -20,17 +20,20 @@ All of the hours reported here are in EST time zone
 - Continue NavBar implementation | 4/12/2020 | 11:00 pm
 - Finish NavBar | 4/12/2020 | 11:45 am
 - Start genome | 4/12/2020 | 12:20 am
-- Start compare/job listings | 5/12/2020 | 4:00 pm
+- Start compare (feature that lets me compare people depending on the job skills selected)/job listings | 5/12/2020 | 4:00 pm
 - Stopped compare/job listings | 5/12/2020 | 5:20 pm
 - Begin compare/job listings | 5/12/2020 | 6:00 pm
 - Stop compare/job listings | 5/12/2020 | 11:10 pm
 - Continue compare | 6/12/2020 | 12:06
 - Stopped job listings (finished pagination) | 6/12/2020 | 1:50 am 
-- Started compare | 6/12/2020 | 11:30 am 
-- Stopped compare | 6/12/2020 | 12:00 pm
+- Started compare feature | 6/12/2020 | 11:30 am 
+- Stopped compare feature | 6/12/2020 | 12:00 pm
 - Discovered pagination bug | 6/12/2020 | 12:30
 - Finished pagination bug | 6/12/2020 | 1:00 pm
 - Started adding people to database for compare | 6/12/2020 | 2:00 pm
 - Finished adding people to database for compare | 6/12/2020 | 4:00 pm
-
-
+- Started search bar for skills | 6/12/2020 | 4:00 pm
+- Finished search bar for skills | 6/12/2020 | 8:17 pm
+- Started models (people) for database queries | 6/12/2020 | 8:18 pm
+- Finished models (people) for database queries | 6/12/2020 | 8:29 pm
+- Started database queries for analyzing data | 6/12/2020 | 8:29 pm

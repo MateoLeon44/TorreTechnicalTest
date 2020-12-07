@@ -18,13 +18,13 @@ export class CompareComponent implements OnInit {
   skills: any;
   selectable: boolean;
   removable: boolean;
-  filteredSkills: Observable<String[]>
+  filteredSkills!: Observable<String[]>
   skillCtrl = new FormControl();
   separatorKeysCodes: number[];
   addOnBlur = false;
   allSkills: any[];
 
-  @ViewChild('compareInput') compareInput: ElementRef;
+  @ViewChild('compareInput') compareInput!: ElementRef;
 
   constructor(private local: LocalService) {
     this.selectable = true;
