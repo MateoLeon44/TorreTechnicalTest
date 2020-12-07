@@ -39,3 +39,6 @@ All of the hours reported here are in EST time zone
 - Started test of people with jest | 6/12/2020 | 8:29 pm
 - Finished test of people with jest | 6/12/2020 | 9:00 pm
 - Started database queries for analyzing data | 6/12/2020 | 9:10 pm
+- Started loader when database queries are done | 6/12/2020 | 9:15 pm
+- Finished loader when database queries are done | 6/12/2020 | 9:40 pm
+- Implemented interceptor for adding headers to database requests | 6/12/2020 | 9:55 pm

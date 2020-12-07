@@ -6,19 +6,21 @@ import { map, startWith } from 'rxjs/operators';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { FilterService } from '../services/filter/filter.service';
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
-  styleUrls: ['./compare.component.scss']
+  styleUrls: ['./compare.component.scss'],
+  providers: [FilterService]
 })
 export class CompareComponent implements OnInit {
 
   job: any;
-  skills: any;
+  skills: Array<any>;
   selectable: boolean;
   removable: boolean;
-  filteredSkills!: Observable<String[]>
+  filteredSkills!: Observable<any[]>
   skillCtrl = new FormControl();
   separatorKeysCodes: number[];
   addOnBlur = false;
@@ -29,7 +31,7 @@ export class CompareComponent implements OnInit {
 
   @ViewChild('compareInput') compareInput!: ElementRef;
 
-  constructor(private local: LocalService) {
+  constructor(private local: LocalService, private filterService: FilterService) {
     this.selectable = true;
     this.removable = true;
     this.separatorKeysCodes = [ENTER, COMMA];
@@ -38,15 +40,16 @@ export class CompareComponent implements OnInit {
     this.loading = true;
     this.showInstructions = true;
     this.instructions = [
-      'Search for the skills you want to filter from the job you chose',
-      'See how people compare each other in those skills'
-    ]
-    this.skillCtrl.valueChanges.subscribe(search => {
-      this.filteredSkills = of(this.allSkills.filter((item: any) => {
-        return item.name.toLowerCase().includes(search)
-      }
-      ));
-    });
+      'Search for the skills and find people who fit the job',
+      'Compare and see the best fit regarding their compensation'
+    ],
+
+      this.skillCtrl.valueChanges.subscribe(search => {
+        this.filteredSkills = of(this.allSkills.filter((item: any) => {
+          return item.name.toLowerCase().includes(search)
+        }
+        ));
+      });
   }
 
   ngOnInit(): void {
@@ -87,10 +90,14 @@ export class CompareComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
+  
     this.showInstructions = false;
     this.skills.push(event.option.viewValue);
     this.compareInput.nativeElement.value = '';
     this.skillCtrl.setValue(null);
+    this.filterService.getResults(this.job, this.skills).subscribe(data => {
+      console.log(data);
+    })
   }
 
 }
