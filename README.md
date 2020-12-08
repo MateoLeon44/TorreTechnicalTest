@@ -1,29 +1,30 @@
 # TorreTechnical
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+https://torre-technical-test-0.herokuapp.com/
 
-## Development server
+## Concept
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The test helps people who post jobs to compare their best fits. By this, people can contact them with ease without having to go with many applications. Right now, if you see console of the best fits section, even though it doesn't show any candidate, it logs the people who fit the job because of their skills (not taking into account other features). 
 
-## Code scaffolding
+- The color palette is the same as in Torre.co
+- The fonts are the same as the ones used in Torre.co
+- The project uses Angular11 (Javascript framework) as front end with material design, Typescript, HTML and SCSS  
+- The project uses Express.js (Node.js framework) as backend with MongoDb as database and Jest.js for the tests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to run the project locally
 
-## Build
+1. Clone the repository
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+2. In the root of the project run `npm i` (this is a feature of Node.js, if you don't have if you'll have to install it and configure its environment variable)
 
-## Running unit tests
+3. You can either create your own .env file with the next variables: PORT (port in which the app will run), MONGODBURI (MongoDB connection url, this can either be local or a cloud database like Mongo atlas) and DBNAME (name for the database that's going to be used). The other way is to run your MongoDb process. This needs MongoDb installed locally with its corresponding environment variable and run `mongod` for the process to start running.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. Run `ng serve` in the root of the project (this needs Angular CLI installed globally). 
 
-## Running end-to-end tests
+5. Open another console in the root of the project and run `node app.js` 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Deadline commits
 
-## Further help
+Even though, this project was due 6/12/2020 11:30 pm EST, I commited only in the package.json and the read.me, so I could deploy it and show how the project works properly (even though some functionalities are still pending). Sorry for going through after the due date.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# TorreTechnicalTest
-Torre technical test using their API as a full stack developer
+
