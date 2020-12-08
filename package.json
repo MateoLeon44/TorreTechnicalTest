@@ -11,7 +11,7 @@
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod",
+    "heroku-postbuild": "ng build --configuration=production",
     "dev": "nodemon app.js && ng serve"
   },
   "private": true,
@@ -39,6 +39,7 @@
     "jest": "^26.6.3",
     "mongodb": "^3.6.3",
     "morgan": "~1.9.1",
+    "ngx-skeleton-loader": "^2.6.2",
     "nodemon": "^2.0.6",
     "rxjs": "^6.6.3",
     "secure-web-storage": "^1.0.2",

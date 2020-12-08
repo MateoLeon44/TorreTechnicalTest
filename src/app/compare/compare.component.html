@@ -25,7 +25,7 @@
             </mat-form-field>
         </div>
 
-        <div *ngIf="loading && showInstructions">
+        <div *ngIf="showInstructions">
             <div class='ordered'>
                 <div>
                     <ol>
@@ -34,12 +34,15 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="loading && !showInstructions">
-            <mat-progress-spinner class='loader' diameter='50' value="50" mode='indeterminate' color='primary'>
-            </mat-progress-spinner>
+        <div class='best-fit'>
+            <app-best-fit [showInstructions]='showInstructions' [loadingBestFit]='loadingBestFit' [bestFit]='bestFit'>
+            </app-best-fit>
         </div>
-        <div *ngIf="!loading">
-            <app-fits></app-fits>
+    </div>
+    <div class='fits'>
+        <div *ngIf="!showInstructions && loadingFits">
+            <ngx-skeleton-loader appearance="circle" [theme]="{'border-radius': '5px'}">
+            </ngx-skeleton-loader>
         </div>
     </div>
 </section>

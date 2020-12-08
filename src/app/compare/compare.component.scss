@@ -32,17 +32,15 @@
     /*change color of underline when focused*/
     background-color: #cddc39 !important;
     border-radius: 20px;
-
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
     border-radius: 30px;
-  }
+}
 
 .person-icon {
     margin-right: 10px;
 }
-
 
 .mat-focused .mat-icon {
     color: #cddc39;
@@ -53,13 +51,21 @@
     margin-top: 30vh;
 }
 
-.ordered{
+.ordered {
     margin-top: 10vh;
     padding-left: 14vw;
-
 }
 
-.ordered-item{
-    color: hsla(0,0%,100%,.65);;
+.ordered-item {
+    color: hsla(0, 0%, 100%, 0.65);
     margin-top: 10px;
+}
+
+.person-wrapper {
+    background: #27292d;
+}
+
+.best-fit {
+    display: table;
+    margin: auto;
 }
