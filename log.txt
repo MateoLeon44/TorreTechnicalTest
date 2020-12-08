@@ -45,3 +45,8 @@ All of the hours reported here are in EST time zone
 - Began complex query to find the best fit | 7/12/2020 | 9:40 pm
 - Finished query to find people who match all skills listed | 7/12/2020 | 10:25 pm
 - Implemented to search only once (not repeated skills) | 7/12/2020 | 10:43 pm
+- Found a bug in HTTPS request (can't get people)| 8/12/2020 | 12:37 am
+- Fixed bug (the api url sent in the email was different when I clicked on it) | 12:57 am
+- Continue implementing query for finding best match | 8/12/2020 | 12:58 am
+- Finished case in which the job compensation is defined | 8/12/2020 | 2:57 am
+- Finished query for best fit | 8/12/2020 | 3:31 am

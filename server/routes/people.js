@@ -29,8 +29,10 @@ router.post('/search-fit', function async(req, res, next) {
 router.post('/search-best-fit', function async(req, res, next) {
   job = req.body.job;
   filters = req.body.filters;
-  peopleController.searchBestFit(job, filters).then((people) => {
-    res.send(people);
+  peopleController.searchBestFits(filters).then((people) => {
+    peopleController.findBestFit(job, people).then((bestFit => {
+      res.send(bestFit);
+    }));
   }, (err) => {
     res.send('Failed obtaining best fit')
   })
