@@ -14,6 +14,7 @@ export class FilterService {
   }
 
   getResults(job: any, skills: Array<string>): Observable<any> {
+    console.log(environment.apiUrl);
     const body = { job, filters: skills }
     return this.http.post(`${environment.apiUrl}/people/search-fit`, body);
   }
