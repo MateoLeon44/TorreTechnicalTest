@@ -25,11 +25,16 @@ export class CompareComponent implements OnInit {
   separatorKeysCodes: number[];
   addOnBlur = false;
   allSkills: any[];
-  loading: boolean;
   showInstructions: boolean;
   instructions: Array<string>;
 
   @ViewChild('compareInput') compareInput!: ElementRef;
+
+  loadingBestFit: boolean;
+  loadingFits: boolean;
+
+  bestFit: any;
+  fits: Array<any>;
 
   constructor(private local: LocalService, private filterService: FilterService) {
     this.selectable = true;
@@ -37,11 +42,14 @@ export class CompareComponent implements OnInit {
     this.separatorKeysCodes = [ENTER, COMMA];
     this.skills = [];
     this.allSkills = []
-    this.loading = true;
+    this.fits = [];
     this.showInstructions = true;
+    this.loadingBestFit = true;
+    this.loadingFits = true;
     this.instructions = [
       'Search for the skills and find people who fit the job',
-      'Compare and see the best fit regarding their compensation'
+      'See the best fit for the job regarding their rank, compensation, skills and where the employee lives',
+      'Look at other alternatives who match the skills'
     ],
 
       this.skillCtrl.valueChanges.subscribe(search => {
@@ -93,20 +101,21 @@ export class CompareComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-
     this.showInstructions = false;
     const selectedSkill = event.option.viewValue
     this.allSkills.splice(this.allSkills.findIndex((skill: any) => skill.name === selectedSkill), 1);
     this.skills.push(selectedSkill);
     this.compareInput.nativeElement.value = '';
     this.skillCtrl.setValue(null);
-
-    this.filterService.getResults(this.job, this.skills).subscribe(data => {
-      console.log('fits', data);
+    /* I don't mind that one result comes before another, so there's no need of using a forkJoin or nesting the service calls */
+    this.filterService.getResults(this.job, this.skills).subscribe(fits => {
+      this.fits = fits;
+      this.loadingFits = false;
     });
 
-    this.filterService.getBestFit(this.job, this.skills).subscribe(data => {
-      console.log('best', data);
+    this.filterService.getBestFit(this.job, this.skills).subscribe(bestFit => {
+      this.bestFit = bestFit;
+      this.loadingBestFit = false;
     });
 
 
