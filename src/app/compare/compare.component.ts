@@ -63,6 +63,9 @@ export class CompareComponent implements OnInit {
     if (index >= 0) {
       this.skills.splice(index, 1);
     }
+
+    this.allSkills.push({ name: skill, experience: '' })
+    this.skillCtrl.setValue(null);
   }
 
   private _filter(value: string): string[] {
@@ -90,14 +93,23 @@ export class CompareComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-  
+
     this.showInstructions = false;
-    this.skills.push(event.option.viewValue);
+    const selectedSkill = event.option.viewValue
+    this.allSkills.splice(this.allSkills.findIndex((skill: any) => skill.name === selectedSkill), 1);
+    this.skills.push(selectedSkill);
     this.compareInput.nativeElement.value = '';
     this.skillCtrl.setValue(null);
+
     this.filterService.getResults(this.job, this.skills).subscribe(data => {
-      console.log(data);
-    })
+      console.log('fits', data);
+    });
+
+    this.filterService.getBestFit(this.job, this.skills).subscribe(data => {
+      console.log('best', data);
+    });
+
+
   }
 
 }

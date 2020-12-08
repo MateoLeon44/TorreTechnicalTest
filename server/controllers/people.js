@@ -51,13 +51,35 @@ const peopleController = () => {
 
 
     people.searchFits = (job, filters) => {
-        return mu.connect().then((client) => 
+        return mu.connect().then((client) =>
             client
                 .db(dbconfigs.name)
                 .collection('people')
                 .find({
                     skills: { $elemMatch: { name: { $in: filters } } }
-                },)
+                })
+                .toArray()
+                .finally(() => client.close())
+        );
+    }
+
+    people.searchBestFit = (jobs, filters) => {
+        let query = [];
+        for (let index = 0; index < filters.length; index++) {
+            const tempQuery = {
+                $elemMatch: {
+                    name: filters[index]
+                }
+            };
+            query.push(tempQuery);
+        }
+        return mu.connect().then((client) =>
+            client
+                .db(dbconfigs.name)
+                .collection('people')
+                .find({
+                    skills: { $all: query }
+                })
                 .toArray()
                 .finally(() => client.close())
         );

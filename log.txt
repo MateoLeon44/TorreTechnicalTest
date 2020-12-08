@@ -42,3 +42,6 @@ All of the hours reported here are in EST time zone
 - Started loader when database queries are done | 6/12/2020 | 9:15 pm
 - Finished loader when database queries are done | 6/12/2020 | 9:40 pm
 - Implemented interceptor for adding headers to database requests | 6/12/2020 | 9:55 pm
+- Began complex query to find the best fit | 7/12/2020 | 9:40 pm
+- Finished query to find people who match all skills listed | 7/12/2020 | 10:25 pm
+- Implemented to search only once (not repeated skills) | 7/12/2020 | 10:43 pm
