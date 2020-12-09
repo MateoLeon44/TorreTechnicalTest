@@ -52,4 +52,11 @@ All of the hours reported here are in EST time zone
 - Finished query for best fit | 8/12/2020 | 3:31 am
 - Started design for best fit | 8/12/2020 | 11:16 am
 - Finished design for best fit | 8/12/2020 | 3:22 pm
-- Started design for other options from comparing | 8/12/2020 | 3:23 pm
+- Started design for other options for comparing | 8/12/2020 | 3:23 pm
+- Finished design for other options for comparing | 8/12/2020 | 6:40 pm
+- Started pagination | 8/12/2020 | 7:00 pm
+- Finished pagination | 8/12/2020 | 7:30 pm
+- Started service facade | 8/12/2020 | 7:30 pm
+- Finished service facade | 8/12/2020 | 7:50 pm 
+- Started tests and modularizing folders | 8:00 pm
+- Finished tests and modularizing folders | 9:30 pm
