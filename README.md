@@ -63,5 +63,5 @@ When there are no matches, the UI should display a 'We couldn't find the best ma
 
 - Make the comparte.component.ts class shorter to avoid an anti pattern (large class)
 
-
+- Implement the backend with Typescript
 
