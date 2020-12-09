@@ -1,4 +1,4 @@
 module.exports = {
-    database: process.env.MONGODBURI || 'mongodb+srv://mateo:leon@cluster0.cvma7.mongodb.net/torre?retryWrites=true&w=majority',
+    database: process.env.MONGODBURI || 'mongodb://localhost:27017',
     name: process.env.DBNAME || 'torre'
 };
