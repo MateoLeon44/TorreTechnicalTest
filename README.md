@@ -43,7 +43,25 @@ We can take into account other things, like skills they want to develop and orga
 
 Even though, this project was due 6/12/2020 11:30 pm EST, I commited only in the package.json and the read.me, so I could deploy it and show how the project works properly (even though some functionalities are still pending). Sorry for going through after the due date.
 
+After the 24 hours that were given to me (thank you very much), I stopped commiting code and only wrote in the readme, so that's why I have some commits that go after 9/12/2020 0:00 am EST.
+
 ## Bugs to fix
 
 When there are no matches, the UI should display a 'We couldn't find the best match for this job' or 'The are no best matches for this job' and 'There are no fits with the skills listed for this job'. This could be easily made with an if in the addPeoplePaginated and the best fit response. The best fit text is not overflowed by ellipsis (CSS), hence I should remove the whitespace: no-wrap from the css and make the ngx-skeleton-loader fit the size depending on the vw property instead of a % property, which would make the page fully responsive. However I can't make anymore code commits, which makes the application have these bugs.
+
+## Improvements
+
+- Implement a cache strategy in the database that helps me retrieve the best option once a user has already searched for (for example, save the job id and the skills). This would make the query much faster.
+
+- Implement front end testing.
+
+- Implement more models, (for example, the job and its derivates) so I can stop using <any>
+  
+- Delete the .cors from the backend and find an alternative solution
+
+- Implement more smart-dumb/container-presenters in the front-end
+
+- Make the comparte.component.ts class shorter to avoid an anti pattern (large class)
+
+
 
