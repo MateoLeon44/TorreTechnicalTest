@@ -1,7 +1,7 @@
-const mu = require('./database.js');
+const mu = require('../utils/database.js');
 const dbconfigs = require('../config/db');
-const torreRequests = require('./httpReqs/torre');
-const matches = require('./matches/matches');
+const torreRequests = require('./externalAPIs/torreAPI');
+const matches = require('./helpers/matches');
 
 const peopleController = () => {
     const people = {};
@@ -38,7 +38,9 @@ const peopleController = () => {
                 })
                 .toArray()
                 .finally(() => client.close())
-        );
+            , err => {
+                throw err
+            });
     }
 
     people.searchBestFits = (filters) => {
@@ -72,7 +74,7 @@ const peopleController = () => {
                 ])
                 .toArray()
                 .finally(() => client.close())
-        );
+            , err => { throw err });
     }
 
     people.findBestFit = async (jobJSON, peopleArray) => {
@@ -104,7 +106,6 @@ const peopleController = () => {
             return peopleArray[0];
         }
     }
-
 
     return people;
 }

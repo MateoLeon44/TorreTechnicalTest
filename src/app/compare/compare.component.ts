@@ -6,12 +6,14 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { FacadeService } from '../services/service-facade.service';
+import { TorreService } from '../services/torre/torre.service';
+import { FilterService } from '../services/filter/filter.service';
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
   styleUrls: ['./compare.component.scss'],
-  providers: [FacadeService]
+  providers: [FacadeService, TorreService, FilterService]
 })
 export class CompareComponent implements OnInit {
 
@@ -81,9 +83,8 @@ export class CompareComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.job = this.facadeService.getJsonValue('job')
+    this.job = this.facadeService.getJsonValue('job');
     this.allSkills = this.job.skills;
-
     this.bestFit$ = this.results$.pipe(
       switchMap((name: string) => {
         return this.facadeService.getBestFit(this.job, this.skills)

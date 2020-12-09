@@ -29,7 +29,8 @@
             <div class='ordered'>
                 <div>
                     <ol>
-                        <li class='ordered-item' *ngFor="let instruction of instructions">{{instruction}}</li>
+                        <li class='ordered-item' *ngFor="let instruction of instructions; let i = index">{{instruction}}
+                            <span *ngIf="i == 0" class='organization'> {{job.organizations[0].name}} </span> </li>
                     </ol>
                 </div>
             </div>
