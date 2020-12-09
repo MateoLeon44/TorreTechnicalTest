@@ -1,5 +1,7 @@
 const dbconfigs = require('../config/db');
 const { MongoClient, ObjectID } = require('mongodb');
+const { person, job, best_fit } = require('./dummydata/dummy');
+const matches = require('../controllers/people');
 
 describe('insert', () => {
     let db;
@@ -7,7 +9,7 @@ describe('insert', () => {
 
     function cleanUpDatabase(database) {
         database.cleanUp();
-      }
+    }
 
     beforeAll(async () => {
         connection = await MongoClient.connect(dbconfigs.database, {
@@ -23,85 +25,27 @@ describe('insert', () => {
     });
 
     it('should insert a doc into people collection', async () => {
-        console.log(dbconfigs.name);
-        console.log(dbconfigs.database);
         const people = db.collection('people');
 
 
         let id = ObjectID();
-        const mockUser = {
-            _id: id, context: { "signaled": null }, "_meta": {
-                "ranker": {
-                    "@type": "and",
-                    "rank": 1.0,
-                    "score": null,
-                    "and": [
-                        {
-                            "@type": "scorer",
-                            "rank": 111.0,
-                            "scorer": "weight",
-                            "score": null,
-                            "input": {
-                                "criteria": null,
-                                "person": {
-                                    "weight": 3193.4502
-                                }
-                            }
-                        },
-                        {
-                            "@type": "scorer",
-                            "rank": 1.0,
-                            "scorer": "completion",
-                            "score": null,
-                            "input": {
-                                "criteria": null,
-                                "person": {
-                                    "completion": 1.0
-                                }
-                            }
-                        },
-                        {
-                            "@type": "scorer",
-                            "rank": 1.0,
-                            "scorer": "grammar",
-                            "score": null,
-                            "input": {
-                                "criteria": null,
-                                "person": {
-                                    "grammar": 1.0
-                                }
-                            }
-                        }
-                    ]
-                },
-                "filter": null
-            },
-            "compensations": {},
-            "locationName": "Provincia di Bergamo, Italy",
-            "name": "David Orban",
-            "openTo": [
-                "advising",
-                "freelance-gigs",
-                "hiring",
-                "mentoring"
-            ],
-            "picture": "https://starrgate.s3.amazonaws.com:443/users/abb39aae447197a94d84f3708742dd7af2db184a/profile_VwukAly.jpg",
-            "professionalHeadline": "Startup creation, fundraising and investment. Thriving in our jolting technological change.",
-            "remoter": true,
-            "skills": [
-                {
-                    "name": "Mergers and Acquisitions",
-                    "weight": 0.0
-                },
-            ],
-            "subjectId": "9237",
-            "username": "davidorban",
-            "verified": true,
-            "weight": 3193.4502
-        };
+        const mockUser = person;
+        mockUser._id = id;
         await people.insertOne(mockUser);
-
         const insertedUser = await people.findOne({ _id: id });
+
         expect(insertedUser).toEqual(mockUser);
     });
+
+    it('should find the best match', async () => {
+        const mock_job = job;
+        const filters = ['TypeScript'];
+        const peopleArray = await matches.searchBestFits(filters);
+
+        const bestFit = await matches.findBestFit(mock_job, peopleArray);
+        console.log(bestFit);
+/*         expect(best_fit).toEqual(bestFit);
+ */    });
+
+
 })
