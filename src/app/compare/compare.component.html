@@ -46,7 +46,7 @@
         <div *ngIf="!showInstructions">
             <div class='fits' fxLayout="row wrap" fxLayoutGap="16px grid">
                 <div fxFlex="30%" ngfor fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let fit of fitsByPage">
-                    <app-fits [showInstructions]='showInstructions' [loadingFits]='loadingFits' [fit]='fit'></app-fits>
+                    <app-fits *ngIf="fit.name" [showInstructions]='showInstructions' [loadingFits]='loadingFits' [fit]='fit'></app-fits>
                 </div>
             </div>
             <div>
