@@ -89,35 +89,19 @@ const peopleController = () => {
         jobMinCompensation = matches.getCompensationJob(job)
         let personToReturn;
         for (let index = 0; index < peopleArray.length; index++) {
-            try {
-                const person = await torreRequests.findPerson(peopleArray[index].username);
-            } catch (e) {
-                throw e
-            }
+            const person = await torreRequests.findPerson(peopleArray[index].username);
             const salaryMatches = matches.compensationMatch(person, jobMinCompensation, job);
-            const jobcito = job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)
-            if (salaryMatches && person.person.flags.remoter && job.place.remote && job.place.anywhere) {
+            if (matches.isAMatch(salaryMatches, person, job)) {
                 personToReturn = peopleArray[index];
-                break
+                break;
             }
-            else if (salaryMatches && person.person.flags.remoter && job.place.remote && !job.place.anywhere) {
-                if (job.serpTags && job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)) {
-                    personToReturn = peopleArray[index];
-                    break
-                }
-            }
-            else if (salaryMatches && (!person.person.flags.remoter || person.person.flags.remoter)) {
-                if (job.serpTags && job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)) {
-                    personToReturn = peopleArray[index];
-                    break
-                }
-            }
+
         }
         if (personToReturn) {
             return personToReturn;
         }
         else {
-            return peopleArray[0]
+            return peopleArray[0];
         }
     }
 

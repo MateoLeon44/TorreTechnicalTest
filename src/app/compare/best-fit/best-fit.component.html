@@ -37,7 +37,7 @@
             <div *ngIf="!loadingBestFit">
                 <div class='first-wrapper'>
                     <div class='no-picture'>
-                        <span class='span-picture' *ngIf="!bestFit.picture">
+                        <span class='span-picture' *ngIf="bestFit && !bestFit.picture">
                             {{bestFit.name[0].toUpperCase()}}
                         </span>
                         <img *ngIf="bestFit.picture" alt='best fit picture' mat-card-image class='mat-img'

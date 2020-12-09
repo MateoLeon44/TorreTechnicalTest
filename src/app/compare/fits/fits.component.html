@@ -30,12 +30,12 @@
     </div>
     <mat-card-content>
         <div *ngIf="!loadingFits">
-            <div class='first-wrapper'>
+            <div class='first-wrapper' *ngIf="fit">
                 <div class='no-picture'>
                     <span class='span-picture' *ngIf="!fit.picture">
                         {{fit.name[0].toUpperCase()}}
                     </span>
-                    <img *ngIf="fit.picture" alt='best fit picture' mat-card-image class='mat-img'
+                    <img *ngIf="fit && fit.picture" alt='best fit picture' mat-card-image class='mat-img'
                         src="{{fit.picture}}">
                 </div>
                 <div>
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <mat-divider [inset]="true" class='divider'></mat-divider>
-            <div class='second-wrapper'>
+            <div class='second-wrapper' *ngIf="fit">
                 <section class='carousel'>
                     <div class="container">
                         <!-- ITEM -->

@@ -64,6 +64,25 @@ const helper = () => {
         return toReturn;
     }
 
+
+    matches.isAMatch = (salaryMatches, person, job) => {
+        toReturn = false;
+        if (salaryMatches && person.person.flags.remoter && job.place.remote && job.place.anywhere) {
+            toReturn = true;
+        }
+        else if (salaryMatches && person.person.flags.remoter && job.place.remote && !job.place.anywhere) {
+            if (job.serpTags && job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)) {
+                toReturn = true;
+            }
+        }
+        else if (salaryMatches && (!person.person.flags.remoter || person.person.flags.remoter)) {
+            if (job.serpTags && job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)) {
+                toReturn = true;
+            }
+        }
+        return toReturn;
+    }
+
     return matches;
 }
 

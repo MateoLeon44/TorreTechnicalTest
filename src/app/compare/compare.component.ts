@@ -1,19 +1,17 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of, Subject } from 'rxjs';
-import { LocalService } from '../services/localstorage/local.service';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { FilterService } from '../services/filter/filter.service';
-import { take } from 'rxjs/operators';
+import { FacadeService } from '../services/service-facade.service';
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
   styleUrls: ['./compare.component.scss'],
-  providers: [FilterService]
+  providers: [FacadeService]
 })
 export class CompareComponent implements OnInit {
 
@@ -49,7 +47,7 @@ export class CompareComponent implements OnInit {
   maxBoundFilter: number
   fitsByPage: Array<any>;
 
-  constructor(private local: LocalService, private filterService: FilterService) {
+  constructor(private facadeService: FacadeService) {
     this.selectable = true;
     this.removable = true;
     this.separatorKeysCodes = [ENTER, COMMA];
@@ -83,12 +81,12 @@ export class CompareComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.job = this.local.getJsonValue('job')
+    this.job = this.facadeService.getJsonValue('job')
     this.allSkills = this.job.skills;
 
     this.bestFit$ = this.results$.pipe(
       switchMap((name: string) => {
-        return this.filterService.getBestFit(this.job, this.skills)
+        return this.facadeService.getBestFit(this.job, this.skills)
       })
     )
 
@@ -100,7 +98,7 @@ export class CompareComponent implements OnInit {
 
     this.fits$ = this.resultsFits$.pipe(
       switchMap((name: string) => {
-        return this.filterService.getResults(this.job, this.skills)
+        return this.facadeService.getResults(this.job, this.skills)
       })
     )
 
@@ -121,15 +119,12 @@ export class CompareComponent implements OnInit {
     this.allSkills.push({ name: skill, experience: '' })
     this.skillCtrl.setValue(null);
 
-    this.filterService.getResults(this.job, this.skills).subscribe(fits => {
-      this.fits = fits;
-      this.loadingFits = false;
-    });
+    this.subject.next('bestFit');
+    this.subjectFits.next('fits');
 
-    this.filterService.getBestFit(this.job, this.skills).subscribe(bestFit => {
-      this.bestFit = bestFit;
-      this.loadingBestFit = false;
-    });
+    if (this.skills.length === 0) {
+      this.showInstructions = true;
+    }
   }
 
   add(event: MatChipInputEvent): void {
@@ -159,7 +154,7 @@ export class CompareComponent implements OnInit {
     this.skillCtrl.setValue(null);
 
     this.subject.next('bestFit');
-    this.subjectFits.next('fits')
+    this.subjectFits.next('fits');
   }
 
 
