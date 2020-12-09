@@ -9,6 +9,8 @@ router.post('/add-people', async function (req, res, next) {
     const people = await peopleController.requestPeople();
     peopleController.addToDatabase(people).then(() => {
       res.send('success');
+    }, err => {
+      res.send('Failed adding people to database');
     })
   }
   catch (reject) {

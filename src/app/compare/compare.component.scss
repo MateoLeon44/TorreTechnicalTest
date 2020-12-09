@@ -9,6 +9,11 @@
     padding-bottom: 100px;
 }
 
+.listing-50 {
+    padding: 30px 10vw;
+    padding-bottom: 50px;
+}
+
 .search {
     margin: auto;
     display: table;
@@ -68,4 +73,32 @@
 .best-fit {
     display: table;
     margin: auto;
+}
+
+.arrow-right {
+    vertical-align: middle;
+    color: #cddc39;
+    background: black;
+    padding: 5px;
+    margin: 0 0 4px 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.arrow-right:hover {
+    background: #393939;
+}
+
+.button-arrow {
+    background: black;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.pagination{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
 }

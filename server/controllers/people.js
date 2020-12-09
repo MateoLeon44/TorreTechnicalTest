@@ -7,7 +7,11 @@ const peopleController = () => {
     const people = {};
 
     people.requestPeople = () => {
-        return torreRequests.searchForPeople();
+        try {
+            return torreRequests.searchForPeople();
+        } catch (e) {
+            throw e;
+        }
     }
 
     people.addToDatabase = (people) => {
@@ -17,7 +21,10 @@ const peopleController = () => {
                 .collection('people')
                 .insertMany(people.results)
                 .finally(() => client.close());
-        });
+        },
+            err => {
+                throw err;
+            });
     }
 
 
@@ -84,29 +91,17 @@ const peopleController = () => {
         for (let index = 0; index < peopleArray.length; index++) {
             const person = await torreRequests.findPerson(peopleArray[index].username);
             const salaryMatches = matches.compensationMatch(person, jobMinCompensation, job);
-            const jobcito = job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)
-            if (salaryMatches && person.person.flags.remoter && job.place.remote && job.place.anywhere) {
+            if (matches.isAMatch(salaryMatches, person, job)) {
                 personToReturn = peopleArray[index];
-                break
+                break;
             }
-            else if (salaryMatches && person.person.flags.remoter && job.place.remote && !job.place.anywhere) {
-                if (job.serpTags && job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)) {
-                    personToReturn = peopleArray[index];
-                    break
-                }
-            }
-            else if (salaryMatches && (!person.person.flags.remoter || person.person.flags.remoter)) {
-                if (job.serpTags && job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)) {
-                    personToReturn = peopleArray[index];
-                    break
-                }
-            }
+
         }
         if (personToReturn) {
             return personToReturn;
         }
         else {
-            return peopleArray[0]
+            return peopleArray[0];
         }
     }
 

@@ -15,6 +15,7 @@ import { BestFitComponent } from './best-fit/best-fit.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatProgressSpinnerModule,
     NgxSkeletonLoaderModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    FlexLayoutModule
   ]
 })
 export class CompareModule { }

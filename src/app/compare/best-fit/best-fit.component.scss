@@ -38,10 +38,16 @@
     margin-top: 10px;
 }
 
-.ngx-skele{
+.ngx-skele {
     width: 20%;
+    margin-right: 5px;
 }
 
+.mat-img {
+    margin: 0 !important;
+    width: 72px;
+    height: 72px;
+}
 
 .display-flex {
     display: flex;
@@ -69,7 +75,7 @@
 }
 
 .carousel {
-    width: 100%;
+    width: 48vw;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -117,6 +123,6 @@
 }
 
 .card-bestFit {
-    width: 50%;
+    width: 48vw;
     margin: auto;
 }

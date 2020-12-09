@@ -1,5 +1,4 @@
 <section>
-    <h1 *ngIf="!showInstructions" class='best-fit-title'>Best fit</h1>
     <mat-card *ngIf="!showInstructions" class='card-bestFit'>
         <div *ngIf="loadingBestFit">
             <div class='first-wrapper'>
@@ -37,12 +36,12 @@
         <mat-card-content>
             <div *ngIf="!loadingBestFit">
                 <div class='first-wrapper'>
-                    <img *ngIf="bestFit.picture" alt='best fit picture' mat-card-image class='mat-img'
-                        src="{{bestFit.picture}}">
                     <div class='no-picture'>
-                        <span class='span-picture' *ngIf="!bestFit.picture">
+                        <span class='span-picture' *ngIf="bestFit && !bestFit.picture">
                             {{bestFit.name[0].toUpperCase()}}
                         </span>
+                        <img *ngIf="bestFit.picture" alt='best fit picture' mat-card-image class='mat-img'
+                            src="{{bestFit.picture}}">
                     </div>
                     <div>
                         <span class='display-flex title overflow'>

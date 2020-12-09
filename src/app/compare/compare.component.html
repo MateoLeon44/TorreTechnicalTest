@@ -1,5 +1,5 @@
 <section class='compare'>
-    <div class='listing'>
+    <div class='listing-50'>
         <div class='search'>
             <mat-form-field appearance='outline' floatLabel='auto' class='search-field'>
                 <mat-label>Search for the job's skills</mat-label>
@@ -35,14 +35,35 @@
             </div>
         </div>
         <div class='best-fit'>
+            <h1 *ngIf="!showInstructions" class='best-fit-title'>Best fit</h1>
             <app-best-fit [showInstructions]='showInstructions' [loadingBestFit]='loadingBestFit' [bestFit]='bestFit'>
             </app-best-fit>
         </div>
     </div>
-    <div class='fits'>
-        <div *ngIf="!showInstructions && loadingFits">
-            <ngx-skeleton-loader appearance="circle" [theme]="{'border-radius': '5px'}">
-            </ngx-skeleton-loader>
+    <div class='listing'>
+        <h1 *ngIf="!showInstructions" class='best-fit-title'>Other fits by skills</h1>
+        <div *ngIf="!showInstructions">
+            <div class='fits' fxLayout="row wrap" fxLayoutGap="16px grid">
+                <div fxFlex="30%" ngfor fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let fit of fitsByPage">
+                    <app-fits [showInstructions]='showInstructions' [loadingFits]='loadingFits' [fit]='fit'></app-fits>
+                </div>
+            </div>
+            <div>
+                <span class='pagination' *ngIf="!showInstructions && fitsByPage.length > 0">
+                    <button *ngIf="minBoundFilter !== 0" (click)='modifyOffset(-6)' class='button-arrow'>
+                        <span class='material-icons arrow-right'>
+                            keyboard_arrow_left
+                        </span>
+                    </button>
+                    <span> {{minBoundFilter}} - {{maxBoundFilter}} of {{fits.length}}
+                    </span>
+                    <button *ngIf="maxBoundFilter !== fits.length" (click)='modifyOffset(6)' class='button-arrow'>
+                        <span class='material-icons arrow-right'>
+                            keyboard_arrow_right
+                        </span>
+                    </button>
+                </span>
+            </div>
         </div>
     </div>
 </section>
