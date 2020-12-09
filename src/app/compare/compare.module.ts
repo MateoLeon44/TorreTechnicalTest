@@ -11,10 +11,15 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FitsComponent } from './fits/fits.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BestFitComponent } from './best-fit/best-fit.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
-  declarations: [CompareComponent, FitsComponent],
+  declarations: [CompareComponent, FitsComponent, BestFitComponent],
   imports: [
     CommonModule,
     CompareRoutingModule,
@@ -25,7 +30,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatChipsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxSkeletonLoaderModule,
+    MatCardModule,
+    MatDividerModule,
+    FlexLayoutModule
   ]
 })
 export class CompareModule { }

@@ -24,6 +24,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 @NgModule({
     declarations: [AppComponent, NavbarComponent],
@@ -48,7 +50,8 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
         MatAutocompleteModule,
         MatChipsModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxSkeletonLoaderModule
     ],
     providers: [StorageService, {
         provide: HTTP_INTERCEPTORS,

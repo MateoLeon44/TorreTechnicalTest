@@ -19,13 +19,6 @@
     border-radius: 10px;
 }
 
-.mat-card-image {
-    width: 72px;
-    height: 72px;
-    margin: 0 !important;
-    border-radius: 10px;
-}
-
 .span-picture {
     font-size: 55px;
 }
@@ -46,8 +39,14 @@
 }
 
 .ngx-skele {
-    margin-right: 5px;
     width: 20%;
+    margin-right: 5px;
+}
+
+.mat-img {
+    margin: 0 !important;
+    width: 72px;
+    height: 72px;
 }
 
 .display-flex {
@@ -67,10 +66,16 @@
     &.location-name {
         font-size: 12px;
     }
+
+    &.overflow {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 }
 
 .carousel {
-    width: 100%;
+    width: 48vw;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -118,6 +123,6 @@
 }
 
 .card-bestFit {
-    width: 50%;
+    width: 48vw;
     margin: auto;
 }

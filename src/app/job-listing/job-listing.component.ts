@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../services/localstorage/storage.service';
+import { FilterService } from '../services/filter/filter.service';
 import { MatSnackbarService } from '../services/mat-snackbar/mat-snackbar.service';
+import { FacadeService } from '../services/service-facade.service';
 import { TorreService } from '../services/torre/torre.service';
 
 @Component({
     selector: 'app-job-listing',
     templateUrl: './job-listing.component.html',
     styleUrls: ['./job-listing.component.scss'],
-    providers: [TorreService, MatSnackbarService, StorageService],
+    providers: [MatSnackbarService, TorreService, FacadeService, FilterService],
 })
 export class JobListingComponent implements OnInit {
     jobs: any[];
@@ -16,9 +17,8 @@ export class JobListingComponent implements OnInit {
     loading: boolean;
 
     constructor(
-        private torreService: TorreService,
         private snackbar: MatSnackbarService,
-        private localStorage: StorageService
+        private facadeService: FacadeService
     ) {
         this.jobs = [];
         this.offset = 0;
@@ -26,7 +26,7 @@ export class JobListingComponent implements OnInit {
     }
 
     getJobs(): void {
-        this.torreService.POSTJobs(this.offset).subscribe(
+        this.facadeService.POSTJobs(this.offset).subscribe(
             (jobs) => {
                 this.result = jobs;
                 this.jobs = jobs.results;

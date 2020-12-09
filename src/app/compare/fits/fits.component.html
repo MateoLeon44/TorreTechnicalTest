@@ -1,1 +1,72 @@
-<p>fits works!</p>
+<mat-card class="mat-elevation-z4">
+    <div *ngIf="loadingFits">
+        <div class='first-wrapper'>
+            <ngx-skeleton-loader animation="progress" appearance="circle"
+                [theme]="{'height':'72px','width':'72px','border-radius': '5px', 'background':'gray'}">
+            </ngx-skeleton-loader>
+            <div class='gravatar-title'>
+                <ngx-skeleton-loader animation="progress"
+                    [theme]="{'background':'gray', 'width':'50px', 'display':'flex'}">
+                </ngx-skeleton-loader>
+                <ngx-skeleton-loader animation="progress"
+                    [theme]="{'background':'gray', 'width':'50px', 'display':'flex'}">
+                </ngx-skeleton-loader>
+                <ngx-skeleton-loader animation="progress"
+                    [theme]="{'background':'gray', 'width':'50px', 'display':'flex'}">
+                </ngx-skeleton-loader>
+            </div>
+        </div>
+        <mat-divider [inset]="true" class='divider'></mat-divider>
+        <div class='second-wrapper-loading'>
+            <ngx-skeleton-loader class='ngx-skele' animation="progress" [theme]="{'background':'gray', 'width':'100%'}">
+            </ngx-skeleton-loader>
+            <ngx-skeleton-loader class='ngx-skele' animation="progress" [theme]="{'background':'gray', 'width':'100%'}">
+            </ngx-skeleton-loader>
+            <ngx-skeleton-loader class='ngx-skele' animation="progress" [theme]="{'background':'gray', 'width':'100%'}">
+            </ngx-skeleton-loader>
+            <ngx-skeleton-loader class='ngx-skele' animation="progress" [theme]="{'background':'gray', 'width':'100%'}">
+            </ngx-skeleton-loader>
+        </div>
+    </div>
+    <mat-card-content>
+        <div *ngIf="!loadingFits">
+            <div class='first-wrapper' *ngIf="fit">
+                <div class='no-picture'>
+                    <span class='span-picture' *ngIf="!fit.picture">
+                        {{fit.name[0].toUpperCase()}}
+                    </span>
+                    <img *ngIf="fit && fit.picture" alt='best fit picture' mat-card-image class='mat-img'
+                        src="{{fit.picture}}">
+                </div>
+                <div>
+                    <span class='display-flex title overflow'>
+                        {{fit.name}}
+                    </span>
+                    <span class='display-flex sub-title overflow'>
+                        {{fit.professionalHeadline}}
+                    </span>
+                    <span class='display-flex sub-title location=name overflow'>
+                        {{fit.locationName}}
+                    </span>
+                </div>
+            </div>
+            <mat-divider [inset]="true" class='divider'></mat-divider>
+            <div class='second-wrapper' *ngIf="fit">
+                <section class='carousel'>
+                    <div class="container">
+                        <!-- ITEM -->
+                        <div *ngFor="let skill of fit.skills" class="carousel__item ">
+                            <div class="skill">
+                                <span>
+                                    {{skill.name}}
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
