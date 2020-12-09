@@ -13,7 +13,19 @@ The test helps people who post jobs to compare their best fits. By this, people 
 
 ## Algorithm implementation
 
-The algorithm implemented to search for the best fit of a job requires more data than what can be seen in the search/people endpoint. Because of this, I need to retrieve the data from the bios/$username endpoint. This makes the algorithm slow, which takes about 20 seconds, the rest of them are simply O(N). 
+The algorithm implemented to search for the best fit of a job requires more data than what can be seen in the search/people endpoint. Because of this, I need to retrieve the data from each person that fits the skills from the bios/$username endpoint. This makes the algorithm slow, which takes about 20 seconds. If I had the access to the people's databse (or collection or however it's stored), the algorithm would run in O(N). Since this is not the case the algorithm depends hardly on the endpoint searches, which makes it really slow. However, since the algorithm takes the first 100 fits that have the most rank and has all the skills, then it could be slower depending on the amount of people that we woul'd like to be compared with. 
+
+The algorithm goes as follows:
+
+1. We search for the first 100 people who have all the skills (filters) and then organize them depending on their rank in a descendant order. This search is made within a collection of 10000 people in a mongo atlas DB. The rank is an attribute that the search/people gives us, and since looking for the years of experience with the jobs they had would make the algorithm significantly slower (because of how the data is), I assumed that having the best rank (which includes weights of recommendation) could have a direct correlation with the years of experience
+2. Now that it's sorted, we make a loop through the array and and search the user with the bios/$username endpoint to get access to more specific data
+3. After that we see if the the fit's salary matches with the job's salary expectation. If it doesn't match, then we take te next person, since I asssume that people wouldn't like to get paid less than what they want
+4. If the salary matches, I take into account if the user is remote, if the job is remote and a set of variables that will tell me if the user is available to work according to the job's demanding place
+5. Since it's sorted, if the user meets the previous requirements, then we can return it and that would be the best match
+
+We can take into account other things, like skills they want to develop and organization size, but that would make the algorithm significantly slower than what it is now. Because of this, I took the decision not to make it this way, since it will reflect in a really slow matter on the app's UI
+
+
 
 ## How to run the project locally
 
@@ -33,5 +45,5 @@ Even though, this project was due 6/12/2020 11:30 pm EST, I commited only in the
 
 ## Bugs to fix
 
-When there are no matches, the UI should display a 'We couldn't find the best match for this job' or 'The are no best matches for this job' and 'There are no fits with the skills listed for this job'
+When there are no matches, the UI should display a 'We couldn't find the best match for this job' or 'The are no best matches for this job' and 'There are no fits with the skills listed for this job'. This could be easily made with an if in the addPeoplePaginated and the best fit response. The best fit text is not overflowed by ellipsis (CSS), hence I should remove the whitespace: no-wrap from the css and make the ngx-skeleton-loader fit the size depending on the vw property instead of a % property, which would make the page fully responsive. However I can't make anymore code commits, which makes the application have these bugs.
 
