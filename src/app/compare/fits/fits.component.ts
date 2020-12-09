@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fits',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FitsComponent implements OnInit {
 
+  @Input() fit!: any;
+
+  @Input() showInstructions!: boolean;
+
+  @Input() loadingFits!: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

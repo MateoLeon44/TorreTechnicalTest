@@ -7,7 +7,11 @@ const peopleController = () => {
     const people = {};
 
     people.requestPeople = () => {
-        return torreRequests.searchForPeople();
+        try {
+            return torreRequests.searchForPeople();
+        } catch (e) {
+            throw e;
+        }
     }
 
     people.addToDatabase = (people) => {
@@ -17,7 +21,10 @@ const peopleController = () => {
                 .collection('people')
                 .insertMany(people.results)
                 .finally(() => client.close());
-        });
+        },
+            err => {
+                throw err;
+            });
     }
 
 
@@ -82,7 +89,11 @@ const peopleController = () => {
         jobMinCompensation = matches.getCompensationJob(job)
         let personToReturn;
         for (let index = 0; index < peopleArray.length; index++) {
-            const person = await torreRequests.findPerson(peopleArray[index].username);
+            try {
+                const person = await torreRequests.findPerson(peopleArray[index].username);
+            } catch (e) {
+                throw e
+            }
             const salaryMatches = matches.compensationMatch(person, jobMinCompensation, job);
             const jobcito = job.serpTags.jobLocation.some(e => e.address.addressCountry === person.person.location.country)
             if (salaryMatches && person.person.flags.remoter && job.place.remote && job.place.anywhere) {

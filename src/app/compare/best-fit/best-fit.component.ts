@@ -22,7 +22,5 @@ export class BestFitComponent implements OnInit {
     return Number(string);
   }
 
-  ngOnChanges() {
-    console.log(this.bestFit);
-  }
+  
 }

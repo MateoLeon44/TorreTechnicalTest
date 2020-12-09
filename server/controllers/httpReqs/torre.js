@@ -43,7 +43,6 @@ const torreRequests = () => {
                 }
             ).end()
             req.on('error', (e) => {
-                console.log(e);
                 reject(e)
             })
             req.end()
@@ -51,16 +50,31 @@ const torreRequests = () => {
     }
 
     requests.searchForPeople = () => {
-        return makeRequest(searchUrl, '/people/_search/?offset=0&size=5000&aggregate=false', 'POST');
+        try {
+            return makeRequest(searchUrl, '/people/_search/?offset=0&size=5000&aggregate=false', 'POST');
+        } catch (e) {
+            throw e;
+        }
+
     }
 
 
     requests.findPerson = (username) => {
-        return makeRequest(bioUrl, `/api/bios/${username}`, 'GET');
+        try {
+            return makeRequest(bioUrl, `/api/bios/${username}`, 'GET');
+        } catch (e) {
+            throw e;
+        }
+
     }
 
     requests.findJob = (id) => {
-        return makeRequest(coUrl, `/api/opportunities/${id}`, 'GET');
+        try {
+            return makeRequest(coUrl, `/api/opportunities/${id}`, 'GET');
+        } catch (e) {
+            throw e;
+        }
+
     }
 
     return requests;
