@@ -11,6 +11,10 @@ The test helps people who post jobs to compare their best fits. By this, people 
 - The project uses Angular11 (Javascript framework) as front end with material design, Typescript, HTML and SCSS  
 - The project uses Express.js (Node.js framework) as backend with MongoDb as database and Jest.js for the tests
 
+## Algorithm implementation
+
+The algorithm implemented to search for the best fit of a job requires more data than what can be seen in the search/people endpoint. Because of this, I need to retrieve the data from the bios/$username endpoint. This makes the algorithm slow, which takes about 20 seconds, the rest of them are simply O(N). 
+
 ## How to run the project locally
 
 1. Clone the repository
