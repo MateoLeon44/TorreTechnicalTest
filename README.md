@@ -31,4 +31,7 @@ The algorithm implemented to search for the best fit of a job requires more data
 
 Even though, this project was due 6/12/2020 11:30 pm EST, I commited only in the package.json and the read.me, so I could deploy it and show how the project works properly (even though some functionalities are still pending). Sorry for going through after the due date.
 
+## Bugs to fix
+
+When there are no matches, the UI should display a 'We couldn't find the best match for this job' or 'The are no best matches for this job' and 'There are no fits with the skills listed for this job'
 
