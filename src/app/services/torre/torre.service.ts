@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { People } from 'src/app/models/people';
 
 
 @Injectable()
@@ -17,6 +18,6 @@ export class TorreService {
         return this.http.post(
             `https://search.torre.co/opportunities/_search/?${params.toString()}`,
             {},
-        );
+        ) ;
     }
 }

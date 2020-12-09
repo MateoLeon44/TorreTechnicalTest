@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterService } from '../services/filter/filter.service';
 import { MatSnackbarService } from '../services/mat-snackbar/mat-snackbar.service';
 import { FacadeService } from '../services/service-facade.service';
+import { TorreService } from '../services/torre/torre.service';
 
 @Component({
     selector: 'app-job-listing',
     templateUrl: './job-listing.component.html',
     styleUrls: ['./job-listing.component.scss'],
-    providers: [MatSnackbarService, FacadeService],
+    providers: [MatSnackbarService, TorreService, FacadeService, FilterService],
 })
 export class JobListingComponent implements OnInit {
     jobs: any[];
