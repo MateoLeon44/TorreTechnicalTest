@@ -65,3 +65,4 @@ When there are no matches, the UI should display a 'We couldn't find the best ma
 
 - Implement the backend with Typescript
 
+- Add code documentation
