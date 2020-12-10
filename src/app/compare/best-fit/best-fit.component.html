@@ -1,5 +1,5 @@
 <section>
-    <mat-card *ngIf="!showInstructions" class='card-bestFit'>
+    <mat-card *ngIf="!showInstructions && (bestFit || loadingBestFit)" class='card-bestFit'>
         <div *ngIf="loadingBestFit">
             <div class='first-wrapper'>
                 <ngx-skeleton-loader animation="progress" appearance="circle"
@@ -7,13 +7,13 @@
                 </ngx-skeleton-loader>
                 <div class='gravatar-title'>
                     <ngx-skeleton-loader animation="progress"
-                        [theme]="{'background':'gray', 'width':'40%', 'display':'flex'}">
+                        [theme]="{'background':'gray', 'width':'18vw', 'display':'flex'}">
                     </ngx-skeleton-loader>
                     <ngx-skeleton-loader animation="progress"
-                        [theme]="{'background':'gray', 'width':'40%', 'display':'flex'}">
+                        [theme]="{'background':'gray', 'width':'18vw', 'display':'flex'}">
                     </ngx-skeleton-loader>
                     <ngx-skeleton-loader animation="progress"
-                        [theme]="{'background':'gray', 'width':'40%', 'display':'flex'}">
+                        [theme]="{'background':'gray', 'width':'18vw', 'display':'flex'}">
                     </ngx-skeleton-loader>
                 </div>
             </div>
@@ -33,8 +33,8 @@
                 </ngx-skeleton-loader>
             </div>
         </div>
-        <mat-card-content>
-            <div *ngIf="!loadingBestFit">
+        <mat-card-content *ngIf="!loadingBestFit && bestFit">
+            <div>
                 <div class='first-wrapper'>
                     <div class='no-picture'>
                         <span class='span-picture' *ngIf="bestFit && !bestFit.picture">
@@ -43,7 +43,7 @@
                         <img *ngIf="bestFit.picture" alt='best fit picture' mat-card-image class='mat-img'
                             src="{{bestFit.picture}}">
                     </div>
-                    <div>
+                    <div class='overflowing'>
                         <span class='display-flex title overflow'>
                             {{bestFit.name}}
                         </span>
@@ -75,4 +75,5 @@
             </div>
         </mat-card-content>
     </mat-card>
+    <span *ngIf="!showInstructions && !bestFit && !loadingBestFit"> There are no best fits for this job </span>
 </section>

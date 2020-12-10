@@ -8,6 +8,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { FacadeService } from '../services/service-facade.service';
 import { TorreService } from '../services/torre/torre.service';
 import { FilterService } from '../services/filter/filter.service';
+import { MatSnackbarService } from '../services/mat-snackbar/mat-snackbar.service';
 
 @Component({
   selector: 'app-compare',
@@ -48,8 +49,9 @@ export class CompareComponent implements OnInit {
   minBoundFilter: number;
   maxBoundFilter: number
   fitsByPage: Array<any>;
+  error: any;
 
-  constructor(private facadeService: FacadeService) {
+  constructor(private facadeService: FacadeService, private snackBarService: MatSnackbarService) {
     this.selectable = true;
     this.removable = true;
     this.separatorKeysCodes = [ENTER, COMMA];
@@ -64,6 +66,7 @@ export class CompareComponent implements OnInit {
     this.showInstructions = true;
     this.loadingBestFit = true;
     this.loadingFits = true;
+    this.error;
     this.instructions = [
       'Search for the skills and find people who fit the job',
       'See the best fit for the job regarding their rank, compensation, skills and where the employee lives',
@@ -71,7 +74,7 @@ export class CompareComponent implements OnInit {
     ],
       this.skillCtrl.valueChanges.
         pipe(
-          debounceTime(400),
+          debounceTime(200),
           distinctUntilChanged()
         )
         .subscribe(search => {
@@ -85,6 +88,7 @@ export class CompareComponent implements OnInit {
   ngOnInit(): void {
     this.job = this.facadeService.getJsonValue('job');
     this.allSkills = this.job.skills;
+    this.filteredSkills = of(this.allSkills);
     this.bestFit$ = this.results$.pipe(
       switchMap((name: string) => {
         return this.facadeService.getBestFit(this.job, this.skills)
@@ -95,6 +99,13 @@ export class CompareComponent implements OnInit {
       .subscribe((bestFit: any) => {
         this.bestFit = bestFit;
         this.loadingBestFit = false;
+      }, (err: any) => {
+        if (err.message) {
+          this.snackBarService.openError(err.message);
+        }
+        else {
+          this.snackBarService.openError(err);
+        }
       });
 
     this.fits$ = this.resultsFits$.pipe(
@@ -107,11 +118,19 @@ export class CompareComponent implements OnInit {
       this.fits = fits;
       this.addFitsToPage();
       this.loadingFits = false;
+    }, (err: any) => {
+      if (err.message) {
+        this.snackBarService.openError(err.message);
+      }
+      else {
+        this.snackBarService.openError(err);
+      }
     })
   }
 
   remove(skill: string): void {
     const index = this.skills.indexOf(skill);
+    this.fitsByPage = []
 
     if (index >= 0) {
       this.skills.splice(index, 1);
@@ -120,11 +139,11 @@ export class CompareComponent implements OnInit {
     this.allSkills.push({ name: skill, experience: '' })
     this.skillCtrl.setValue(null);
 
-    this.subject.next('bestFit');
-    this.subjectFits.next('fits');
+    this.searchForFitsAndBestFit();
 
     if (this.skills.length === 0) {
       this.showInstructions = true;
+      this.filteredSkills = of(this.allSkills);
     }
   }
 
@@ -142,6 +161,8 @@ export class CompareComponent implements OnInit {
     }
 
     this.skillCtrl.setValue(null);
+
+    this.searchForFitsAndBestFit();
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
@@ -149,11 +170,16 @@ export class CompareComponent implements OnInit {
     this.loadingFits = true;
     this.loadingBestFit = true;
     const selectedSkill = event.option.viewValue
+    this.fitsByPage = [];
     this.allSkills.splice(this.allSkills.findIndex((skill: any) => skill.name === selectedSkill), 1);
     this.skills.push(selectedSkill);
     this.compareInput.nativeElement.value = '';
     this.skillCtrl.setValue(null);
+    this.filteredSkills = of(this.allSkills);
+    this.searchForFitsAndBestFit();
+  }
 
+  searchForFitsAndBestFit(): void{
     this.subject.next('bestFit');
     this.subjectFits.next('fits');
   }
@@ -168,7 +194,10 @@ export class CompareComponent implements OnInit {
 
   addFitsToPage(): void {
     for (let index = this.minBoundFilter; index < this.maxBoundFilter; index++) {
-      this.fitsByPage.push(this.fits[index]);
+      if (this.fits[index]) {
+        this.fitsByPage.push(this.fits[index]);
+
+      }
     }
   }
 

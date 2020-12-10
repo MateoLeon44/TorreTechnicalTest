@@ -5,7 +5,7 @@
                 <mat-label>Search for the job's skills</mat-label>
                 <mat-icon matPrefix class='person-icon'>person_search</mat-icon>
 
-                <mat-chip-list #chipList>
+                <mat-chip-list class='chip-wrapper' #chipList>
                     <mat-chip (removed)="remove(skill)" *ngFor="let skill of skills" [selectable]="selectable"
                         [removable]="removable">
                         {{skill}}
@@ -42,11 +42,16 @@
         </div>
     </div>
     <div class='listing'>
-        <h1 *ngIf="!showInstructions" class='best-fit-title'>Other fits by skills</h1>
+        <h1 *ngIf="!showInstructions" class='best-fit-title'>Other fits by skills
+        </h1>
         <div *ngIf="!showInstructions">
             <div class='fits' fxLayout="row wrap" fxLayoutGap="16px grid">
                 <div fxFlex="30%" ngfor fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let fit of fitsByPage">
                     <app-fits *ngIf="fit.name" [showInstructions]='showInstructions' [loadingFits]='loadingFits' [fit]='fit'></app-fits>
+                </div>
+                
+                <div *ngIf="fitsByPage.length === 0 && !loadingFits ">
+                    <span>We couldn't find any fits for this job</span>
                 </div>
             </div>
             <div>
@@ -58,7 +63,7 @@
                     </button>
                     <span> {{minBoundFilter}} - {{maxBoundFilter}} of {{fits.length}}
                     </span>
-                    <button *ngIf="maxBoundFilter !== fits.length" (click)='modifyOffset(6)' class='button-arrow'>
+                    <button *ngIf="maxBoundFilter <= fits.length" (click)='modifyOffset(6)' class='button-arrow'>
                         <span class='material-icons arrow-right'>
                             keyboard_arrow_right
                         </span>
