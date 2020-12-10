@@ -66,6 +66,16 @@
     margin-top: 10px;
 }
 
+.chip-wrapper {
+    ::ng-deep {
+        .mat-chip-list-wrapper {
+            flex-wrap: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+    }
+}
+
 .organization {
     font-weight: 600;
     color: #fff;

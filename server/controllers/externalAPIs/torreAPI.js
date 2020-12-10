@@ -24,11 +24,12 @@ const torreRequests = () => {
                     res.on("end", () => {
                         try {
                             const json = JSON.parse(data);
-                            if (json.results || json.id || json.person.publicId) {
-                                resolve(json);
-                            }
-                            else if (json.message) {
+                            if (json.message) {
                                 throw json.message
+
+                            }
+                            else if (json.results || json.id || json.person.publicId) {
+                                resolve(json);
                             }
                             else if (typeof json === '') {
                                 throw json;

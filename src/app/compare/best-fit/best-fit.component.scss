@@ -74,6 +74,12 @@
     }
 }
 
+.overflowing {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: grid;
+}
+
 .carousel {
     width: 48vw;
     overflow: hidden;

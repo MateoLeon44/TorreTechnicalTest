@@ -91,13 +91,16 @@ const peopleController = () => {
         jobMinCompensation = matches.getCompensationJob(job)
         let personToReturn;
         for (let index = 0; index < peopleArray.length; index++) {
-            const person = await torreRequests.findPerson(peopleArray[index].username);
-            const salaryMatches = matches.compensationMatch(person, jobMinCompensation, job);
-            if (matches.isAMatch(salaryMatches, person, job)) {
-                personToReturn = peopleArray[index];
-                break;
+            try {
+                const person = await torreRequests.findPerson(peopleArray[index].username);
+                const salaryMatches = matches.compensationMatch(person, jobMinCompensation, job);
+                if (matches.isAMatch(salaryMatches, person, job)) {
+                    personToReturn = peopleArray[index];
+                    break;
+                }
             }
-
+            catch (e) {
+            }
         }
         if (personToReturn) {
             return personToReturn;
